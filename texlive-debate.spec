@@ -1,6 +1,6 @@
 Name:		texlive-debate
 Version:	64846
-Release:	1
+Release:	2
 Summary:	Debates between reviewers
 Group:		Publishing
 URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/debate
