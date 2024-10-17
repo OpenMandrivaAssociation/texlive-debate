@@ -3,7 +3,7 @@ Version:	64846
 Release:	2
 Summary:	Debates between reviewers
 Group:		Publishing
-URL:		http://www.ctan.org/tex-archive/macros/latex/contrib/debate
+URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/debate
 License:	mit
 Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.r%{version}.tar.xz
 Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.doc.r%{version}.tar.xz
