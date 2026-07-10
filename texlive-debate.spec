@@ -1,39 +1,30 @@
-Name:		texlive-debate
-Version:	64846
-Release:	2
+%global tl_name debate
+%global tl_revision 64846
+
+Name:		texlive-%{tl_name}
+Epoch:		1
+Version:	0.2.1
+Release:	%{tl_revision}.1
 Summary:	Debates between reviewers
 Group:		Publishing
 URL:		https://www.ctan.org/tex-archive/macros/latex/contrib/debate
 License:	mit
-Source0:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.r%{version}.tar.xz
-Source1:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.doc.r%{version}.tar.xz
-Source2:	http://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.source.r%{version}.tar.xz
+Source0:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.r%{tl_revision}.tar.xz
+Source1:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.doc.r%{tl_revision}.tar.xz
+Source2:	https://mirrors.ctan.org/systems/texlive/tlnet/archive/debate.source.r%{tl_revision}.tar.xz
 BuildArch:	noarch
+BuildSystem:	texlive
 BuildRequires:	texlive-tlpkg
-Requires(pre):	texlive-tlpkg
-Requires(post):	texlive-kpathsea
+%texlive_base_requires
+Requires:	texlive(listings)
+Requires:	texlive(listingsutf8)
+Requires:	texlive(pdfcol)
+Requires:	texlive(tcolorbox)
+Requires:	texlive(xcolor)
+Requires:	texlive(xkeyval)
+Provides:	texlive(%{tl_name}) = %{tl_revision}
 
 %description
-This package helps to organize debates between multiple
-reviewers of a paper within the text.
+This package helps to organize debates between multiple reviewers of a
+paper within the text.
 
-%prep
-%setup -c -a1 -a2
-%autopatch -p1
-
-%build
-
-%install
-rm -rf tlpkg
-mkdir -p %{buildroot}%{_texmfdistdir}
-cp -a * %{buildroot}%{_texmfdistdir}
-
-%files
-%doc %{_texmfdistdir}/source/latex/debate
-%{_texmfdistdir}/tex/latex/debate
-%doc %{_texmfdistdir}/doc/latex/debate
-
-%post -p %{_sbindir}/texlive.post
-
-%postun
-[ "$1" -eq 0 ] && %{_sbindir}/texlive.post
